@@ -8,8 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc vimrc vim zshrc oh-my-zsh private scrotwm.conf Xresources"    # list of files/folders to symlink in homedir
-
+files="bashrc vimrc vim zshrc oh-my-zsh private Xdefaults"    # list of files/folders to symlink in homedir
 ##########
 
 # create dotfiles_old in homedir
@@ -29,6 +28,12 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+# doing i3 seperately because it's special
+echo "Moving any existing i3 stuff from ~ to $olddir"
+mv ~/.i3/config ~/dotfiles_old/
+echo "Creating symlink to i3 config in home directory."
+ln -s $dir/.i3/config ~/.i3/config
 
 install_zsh () {
 # Test to see if zshell is installed.  If it is:
