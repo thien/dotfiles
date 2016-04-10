@@ -111,16 +111,3 @@ if hostname != "scc1"
   highlight Comment cterm=italic
 endif
 
-" GUI settings:
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("gui_running")
-  if has("win32") || has("win16")
-    set guifont=Consolas:h14
-  else
-    set guifont=Inconsolata\ for\ Powerline\ 16
-  endif
-  set guioptions-=m  "remove menu bar
-  set guioptions-=T  "remove toolbar
-  set guioptions-=r  "remove right-hand scroll bar
-  set guioptions-=L  "remove left-hand scroll bar
-endif
