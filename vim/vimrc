@@ -1,5 +1,5 @@
-
-set number
+set number relativenumber
 syntax on
 set clipboard=unnamed
-
+set encoding=UTF-8
+set shiftwidth=4 autoindent smartindent tabstop=4 softtabstop=4 
