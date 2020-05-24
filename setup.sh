@@ -42,6 +42,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		brew install vim
 	fi
 fi
+# update vimrc
+cat vim/vimrc > ~/.vimrc
+
 # check if vundle is installed
 VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
 if [ ! -d $VUNDLE_DIR ]; then
@@ -50,6 +53,5 @@ if [ ! -d $VUNDLE_DIR ]; then
 else
 	echo "vundle is already installed."
 fi
-# update vimrc
-cat vim/vimrc > ~/.vimrc
-
+# install vim plugins
+vim +PluginInstall +qall
