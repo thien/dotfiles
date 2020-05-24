@@ -46,9 +46,11 @@ Plugin 'dracula/vim', { 'name': 'dracula' }
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-colorscheme dracula
+let g:dracula_colorterm = 0
+let g:dracula_italic = 0
 
-highlight LineNr term=bold cterm=NONE ctermfg=NONE ctermbg=DarkGrey 
+colorscheme dracula
+highlight LineNr term=bold cterm=NONE ctermfg=NONE ctermbg=darkgrey
 highlight CursorLine cterm=NONE ctermbg=darkgrey ctermfg=NONE 
 highlight CursorColumn cterm=NONE ctermbg=darkred ctermfg=NONE
 set cursorline
@@ -64,7 +66,6 @@ let g:fzf_preview_window = ''
 let g:fzf_preview_window = 'right:50%'
 
 set laststatus=0
-
 let g:pymode_python = 'python3'
 
 "Enable Folding
