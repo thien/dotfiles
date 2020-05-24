@@ -2,17 +2,42 @@
 cat alacritty/alacritty.yml > $HOME/.config/alacritty/alacritty.yml
 
 # update tmux
-cat tmux/tmux.conf > ~/.tmux.conf
+cat tmux/tmux.conf > $HOME/.tmux.conf
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	if [[ $(which watch) == *"local"* ]]; then
+		echo "Homebrew watch is already installed."
+	else	
+		brew install watch
+	fi
+fi
+ 
+# get cpu temp info
+if [ ! -d "osx-cpu-temp" ]; then
+    git clone https://github.com/lavoiesl/osx-cpu-temp.git
+    cd osx-cpu-temp
+	echo "installing osx-cpu-temp, need password!"
+    sudo make install
+    cd ..
+else
+	echo "osx-cpu-temp is already installed."
+fi
 
 # update vim
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	# I guess I could check whether this is already installed
-	brew install vim
+	if [[ $(which vim) == *"local"* ]]; then
+		echo "Homebrew Vim already installed."
+	else	
+		brew install vim
+	fi
 fi
 # check if vundle is installed
-VUNDLE_DIR="~/.vim/bundle/Vundle.vim"
-if [ ! -d $VUNDLE_DIR ]; then
-	git clone https://github.com/VundleVim/Vundle.vim.git $VUNDLE_DIR
+VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
+if [ ! -d $vundle_dir ]; then
+	git clone https://github.com/vundlevim/vundle.vim.git $vundle_dir
+	echo "installed vundle."
+else
+	echo "vundle is already installed."
 fi
 # update vimrc
 cat vim/vimrc > ~/.vimrc
