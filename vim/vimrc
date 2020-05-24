@@ -44,6 +44,12 @@ Plugin 'airblade/vim-rooter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plugin 'dracula/vim', { 'name': 'dracula' }
+
+if has('nvim') || has('patch-8.0.902')
+  Plugin 'mhinz/vim-signify'
+else
+  Plugin 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -51,9 +57,9 @@ let g:dracula_colorterm = 0
 let g:dracula_italic = 0
 
 colorscheme dracula
-highlight LineNr term=bold cterm=NONE ctermfg=NONE ctermbg=darkgrey
-highlight CursorLine cterm=NONE ctermbg=darkgrey ctermfg=NONE 
-highlight CursorColumn cterm=NONE ctermbg=darkred ctermfg=NONE
+"highlight LineNr cterm=italic ctermbg=NONE ctermfg=NONE
+highlight CursorLine cterm=NONE ctermbg=black ctermfg=NONE 
+"highlight CursorColumn cterm=reverse ctermbg=black ctermfg=NONE
 set cursorline
 
 "Airline configs
@@ -82,3 +88,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "Open fzf
 map <C-p> :Files<CR>
 
+"signify settings
+set updatetime=100
+"hi SignColumn ctermbg=darkgrey
