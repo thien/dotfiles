@@ -32,3 +32,17 @@ highlight LineNr term=bold cterm=NONE ctermfg=Grey ctermbg=DarkGrey gui=NONE gui
 highlight CursorLine cterm=NONE ctermbg=darkgrey ctermfg=NONE guibg=darkred guifg=white
 highlight CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 set cursorline
+
+"Status-line
+set statusline=
+set statusline+=%#IncSearch#
+set statusline+=\ %y
+set statusline+=\ %r
+set statusline+=%#CursorLineNr#
+set statusline+=\ %F
+set statusline+=%= "Right side settings
+set statusline+=%#Search#
+set statusline+=\ %l/%L
+set statusline+=\ [%c]
+
+set background=dark termguicolors cursorline
