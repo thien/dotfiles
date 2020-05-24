@@ -3,6 +3,17 @@ cat alacritty/alacritty.yml > $HOME/.config/alacritty/alacritty.yml
 
 # update tmux
 cat tmux/tmux.conf > $HOME/.tmux.conf
+TPM_DIR="$HOME/.tmux/plugins/tpm"
+if [ ! -d $TPM_DIR ]; then
+	git clone https://github.com/tmux-plugins/tpm $vundle_dir
+	if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
+		 tmux source $HOME/.tmux.conf	
+	fi
+	echo "installed tpm."
+	echo "You'll need to go into tmux and then press `prefix + I` after."
+else
+	echo "tpm is already installed."
+fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	if [[ $(which watch) == *"local"* ]]; then
@@ -33,8 +44,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 # check if vundle is installed
 VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
-if [ ! -d $vundle_dir ]; then
-	git clone https://github.com/vundlevim/vundle.vim.git $vundle_dir
+if [ ! -d $VUNDLE_DIR ]; then
+	git clone https://github.com/vundlevim/vundle.vim.git $VUNDLE_DIR
 	echo "installed vundle."
 else
 	echo "vundle is already installed."
