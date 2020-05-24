@@ -10,7 +10,7 @@ if [ ! -d $TPM_DIR ]; then
 		 tmux source $HOME/.tmux.conf	
 	fi
 	echo "installed tpm."
-	echo "You'll need to go into tmux and then press `prefix + I` after."
+	echo "You'll need to go into tmux and then press prefix + I after."
 else
 	echo "tpm is already installed."
 fi
