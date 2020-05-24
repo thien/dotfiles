@@ -27,3 +27,8 @@ if &listchars ==# 'eol:$'
   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 endif
 
+
+highlight LineNr term=bold cterm=NONE ctermfg=Grey ctermbg=DarkGrey gui=NONE guifg=DarkGrey guibg=NONE
+highlight CursorLine cterm=NONE ctermbg=darkgrey ctermfg=NONE guibg=darkred guifg=white
+highlight CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+set cursorline
