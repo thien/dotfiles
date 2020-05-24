@@ -11,7 +11,7 @@ env:
   # specify all features alacritty supports. This does pose
   # a few issues with programs relying on terminfo and the
   # `tput` command
-  TERM: xterm-256color
+  TERM: screen-256color
 
 
 # The FreeType rasterizer needs to know the device DPI for best results
@@ -20,30 +20,20 @@ dpi:
   x: 218.0
   y: 218.0
 
-# Display tabs using this many cells (changes require restart)
-tabspaces: 4
 
 # When true, bold text is drawn using the bright variant of colors.
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
 # Font configuration (changes require restart)
 font:
-  # The normal (roman) font face to use.
   normal:
     family: Iosevka Term
-    # Style can be specified to pick a specific face.
     style: Regular
-
-  # The bold font face
   bold:
     family: Iosevka Term
-    # Style can be specified to pick a specific face.
     Style: Bold
-
-  # The italic font face
   italic:
     family: Iosevka Term
-    # Style can be specified to pick a specific face.
     style: Italic
 
   # Point size of the font
@@ -51,17 +41,13 @@ font:
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
 
-  # OS X only: use thin stroke font rendering. Thin strokes are suitable
-  # for retina displays, but for non-retina you probably want this set to
-  # false.
-  use_thin_strokes: true 
-
 # Should display the render timer
 debug.render_timer: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: true
+
 
 padding:
   x: 20
@@ -89,6 +75,9 @@ colors:
   cursor:
     text: '0x44475a'
     cursor: '0xf8f8f2'
+    style: Block
+    unfocused_hollow: true
+
 
   # Normal colors
   normal:
@@ -231,5 +220,4 @@ window:
   padding:
     x: 10
     y: 10
-  dynamic_padding: true
-
+  dynamic_padding: false
