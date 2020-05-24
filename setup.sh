@@ -15,6 +15,7 @@ else
 	echo "tpm is already installed."
 fi
 
+# installs watch
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	if [[ $(which watch) == *"local"* ]]; then
 		echo "Homebrew watch is already installed."
@@ -23,6 +24,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 fi
  
+# installs ripgrep 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	if [[ $(which rg) == *"local"* ]]; then
+		echo "Homebrew ripgrep is already installed."
+	else	
+		brew install ripgrep 
+	fi
+fi
 # get cpu temp info
 if [ ! -d "osx-cpu-temp" ]; then
     git clone https://github.com/lavoiesl/osx-cpu-temp.git
