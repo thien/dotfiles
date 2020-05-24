@@ -29,7 +29,7 @@ endif
 
 highlight LineNr term=bold cterm=NONE ctermfg=NONE ctermbg=DarkGrey 
 highlight CursorLine cterm=NONE ctermbg=darkgrey ctermfg=NONE guibg=darkred guifg=white
-"highlight CursorColumn cterm=NONE ctermbg=darkred ctermfg=NONE guibg=darkred guifg=white
+highlight CursorColumn cterm=NONE ctermbg=darkred ctermfg=NONE guibg=darkred guifg=white
 set cursorline
 "set background=dark termguicolors cursorline
 
@@ -46,6 +46,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -60,3 +62,33 @@ let g:fzf_preview_window = ''
 let g:fzf_preview_window = 'right:50%'
 
 set laststatus=0
+
+"Python PEP-8 Standard configs
+" au BufNewFile,BufRead *.py
+"     \ set tabstop=4
+"     \ set softtabstop=4
+"     \ set shiftwidth=4
+"     \ set textwidth=79
+"     \ set expandtab
+"     \ set autoindent
+"     \ set fileformat=unix
+
+"Web Dev stack
+" au BufNewFile,BufRead *.js, *.html, *.css
+"     \ set tabstop=2
+"     \ set softtabstop=2
+"     \ set shiftwidth=2
+
+"Enable Folding
+set foldmethod=indent
+set foldlevel=99
+"Folding with the spacebar
+nnoremap <space> za
+
+"Open NERD-TREE
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "closes vim if the only window left is nerdtree and you quit that 
+
+"Open fzf
+map <C-p> :Files<CR>
+
