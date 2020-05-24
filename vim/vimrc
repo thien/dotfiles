@@ -2,5 +2,28 @@ set number relativenumber
 syntax on
 set clipboard=unnamed
 set encoding=UTF-8
-set shiftwidth=4 autoindent smartindent tabstop=4 softtabstop=4 
+set shiftwidth=4
+set autoindent
+set smartindent
+set tabstop=4
+set softtabstop=4
 set hlsearch
+set smarttab
+set complete-=i
+set laststatus=2
+set ruler
+set wildmenu
+
+if !&scrolloff
+  set scrolloff=1
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
+set display+=lastline
+
+
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
+
