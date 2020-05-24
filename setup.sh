@@ -5,7 +5,7 @@ cat alacritty/alacritty.yml > $HOME/.config/alacritty/alacritty.yml
 cat tmux/tmux.conf > $HOME/.tmux.conf
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 if [ ! -d $TPM_DIR ]; then
-	git clone https://github.com/tmux-plugins/tpm $vundle_dir
+	git clone https://github.com/tmux-plugins/tpm $TPM_DIR
 	if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
 		 tmux source $HOME/.tmux.conf	
 	fi
