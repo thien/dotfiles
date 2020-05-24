@@ -27,12 +27,6 @@ if &listchars ==# 'eol:$'
   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 endif
 
-highlight LineNr term=bold cterm=NONE ctermfg=NONE ctermbg=DarkGrey 
-highlight CursorLine cterm=NONE ctermbg=darkgrey ctermfg=NONE guibg=darkred guifg=white
-highlight CursorColumn cterm=NONE ctermbg=darkred ctermfg=NONE guibg=darkred guifg=white
-set cursorline
-"set background=dark termguicolors cursorline
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -48,8 +42,16 @@ Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plugin 'dracula/vim', { 'name': 'dracula' }
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+colorscheme dracula
+
+highlight LineNr term=bold cterm=NONE ctermfg=NONE ctermbg=DarkGrey 
+highlight CursorLine cterm=NONE ctermbg=darkgrey ctermfg=NONE 
+highlight CursorColumn cterm=NONE ctermbg=darkred ctermfg=NONE
+set cursorline
 
 "Airline configs
 let g:airline#extensions#tabline#left_sep = ' '
