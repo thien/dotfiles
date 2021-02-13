@@ -91,3 +91,5 @@ map <C-p> :Files<CR>
 "signify settings
 set updatetime=100
 "hi SignColumn ctermbg=darkgrey
+
+set paste
